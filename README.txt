@@ -1,5 +1,9 @@
 README
 
+Jhair Andres Santamaria
+Emanuel Bedoya
+
+
 Este proyecto consiste en un sistema para calcular el impuesto de renta en base a los ingresos y gastos de un contribuyente. El cálculo se realiza de acuerdo con las normativas fiscales vigentes.
 
 Estructura del proyecto
