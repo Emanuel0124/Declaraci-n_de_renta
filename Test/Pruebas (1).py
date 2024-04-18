@@ -1,14 +1,17 @@
-from src.Declaración_calc.Logica import calcular_impuesto_renta
-from src.Declaración_calc.Logica import _calcular_impuesto_final
-import unittest
-import src.Declaración_calc.Logica as Logica
 import sys
-sys.path.append("Declaración_renta")
+sys.path.append("src")
 
-#Organizar bien los casos de prueba
+from Logica_declaración import Logica
+import unittest
+
+from unittest.mock import patch
+
+
+
+"""Organizar bien los casos de prueba"""
 class Declaracion_test(unittest.TestCase):
 
-    def Test_renta_ceroen_ret_seg_apor_hip_don_gas(self):
+    def test_renta_ceroen_ret_seg_apor_hip_don_gas(self):
         ingresos_laborales=50000000
         otros_ingresos=1000000
         retenciones_fuente=0
@@ -19,14 +22,14 @@ class Declaracion_test(unittest.TestCase):
         gastos_educacion=0
 
 
-        result=Logica.calcular_impuesto_renta(ingresos_laborales,otros_ingresos,retenciones_fuente,seguridad_social,aportes_pension,gastos_creditos_hipotecarios, donaciones,gastos_educacion)
+        result=(ingresos_laborales,otros_ingresos,retenciones_fuente,seguridad_social,aportes_pension,gastos_creditos_hipotecarios, donaciones,gastos_educacion)
 
         expected=0
 
-        self.assertEqual(expected,round(result,2)) #El ultimo numero es el numero de decimales de margen de error
+        self.assertEqual(expected,round(result,2)) 
 
 
-    def Test_renta_ceroen_otros_ret_hip_don_gas(self):
+    def test_renta_ceroen_otros_ret_hip_don_gas(self):
         ingresos_laborales=60000000
         otros_ingresos=0
         retenciones_fuente=0
@@ -42,7 +45,7 @@ class Declaracion_test(unittest.TestCase):
 
         self.assertEqual(expected,round(result,2))
     
-    def Test_renta_ceroen_otros_ret_seg_apor_hip_gas(self):
+    def test_renta_ceroen_otros_ret_seg_apor_hip_gas(self):
         ingresos_laborales=0
         otros_ingresos=0
         retenciones_fuente=0
@@ -58,7 +61,7 @@ class Declaracion_test(unittest.TestCase):
 
         self.assertEqual(expected,round(result,2))
 
-    def Test_renta_ceroen_ingr_otros_seg_apor_hip_don_gas(self):
+    def test_renta_ceroen_ingr_otros_seg_apor_hip_don_gas(self):
 
         ingresos_laborales=0
         otros_ingresos=0
@@ -75,7 +78,7 @@ class Declaracion_test(unittest.TestCase):
 
         self.assertEqual(expected,round(result,2))
 
-    def Test_renta_ceroen_otros_ret(self):
+    def test_renta_ceroen_otros_ret(self):
         ingresos_laborales=60000000
         otros_ingresos=0
         retenciones_fuente=0
@@ -91,7 +94,7 @@ class Declaracion_test(unittest.TestCase):
 
         self.assertEqual(expected,round(result,2))
 
-    def Test_renta_ceroen_seg_ret(self):
+    def test_renta_ceroen_seg_ret(self):
         ingresos_laborales=32000000
         otros_ingresos=1200000
         retenciones_fuente=0
@@ -107,7 +110,7 @@ class Declaracion_test(unittest.TestCase):
 
         self.assertEqual(expected,round(result,2))
 
-    def Test_renta_ceroen_ingresos(self):
+    def test_renta_ceroen_ingresos(self):
         ingresos_laborales=0
         otros_ingresos=1200000
         retenciones_fuente=1000000
@@ -124,7 +127,7 @@ class Declaracion_test(unittest.TestCase):
         self.assertEqual(expected,round(result,2))
     
 
-    def Test_renta_ceroen_gas(self):
+    def test_renta_ceroen_gas(self):
         ingresos_laborales=60000000
         otros_ingresos=1300000
         retenciones_fuente=0
@@ -140,7 +143,7 @@ class Declaracion_test(unittest.TestCase):
 
         self.assertEqual(expected,round(result,2))
 
-    def Test_renta_negativos(self):
+    def test_renta_negativos(self):
         ingresos_laborales=-60000000
         otros_ingresos=-1300000
         retenciones_fuente=-1300000
@@ -156,7 +159,7 @@ class Declaracion_test(unittest.TestCase):
 
         self.assertEqual(expected,round(result,2))
 
-    def Test_renta_decimales(self):
+    def test_renta_decimales(self):
         ingresos_laborales=60000000.25
         otros_ingresos=1300000.3
         retenciones_fuente=1300000.5
@@ -172,7 +175,7 @@ class Declaracion_test(unittest.TestCase):
 
         self.assertEqual(expected,round(result,2))
 
-    def Test_renta_todo_cero(self):
+    def test_renta_todo_cero(self):
         ingresos_laborales=0
         otros_ingresos=0
         retenciones_fuente=0
@@ -191,7 +194,7 @@ class Declaracion_test(unittest.TestCase):
         
 
 
-    def Test_renta_decimales(self):
+    def test_renta_decimales(self):
         ingresos_laborales=60000000.25
         otros_ingresos=1300000.3
         retenciones_fuente=1300000.5
@@ -207,7 +210,7 @@ class Declaracion_test(unittest.TestCase):
 
         self.assertEqual(expected,round(result,2))
 
-    def Test_renta_decimal_algunos(self):
+    def test_renta_decimal_algunos(self):
         ingresos_laborales=60000000
         otros_ingresos=13000000
         retenciones_fuente=7500000.5
@@ -223,7 +226,7 @@ class Declaracion_test(unittest.TestCase):
 
         self.assertEqual(expected,round(result,2))
 
-    def Test_renta_decimal_algunos_neg_y_cero(self):
+    def test_renta_decimal_algunos_neg_y_cero(self):
         ingresos_laborales=600000000
         otros_ingresos=1300000
         retenciones_fuente=1300000.5
@@ -239,7 +242,7 @@ class Declaracion_test(unittest.TestCase):
 
         self.assertEqual(expected,round(result,2))
 
-    def Test_renta_cero_en_otros_seg_apor_hip_don_gas(self):
+    def test_renta_cero_en_otros_seg_apor_hip_don_gas(self):
         ingresos_laborales=60000000
         otros_ingresos=0
         retenciones_fuente=1300000
@@ -255,7 +258,7 @@ class Declaracion_test(unittest.TestCase):
 
         self.assertEqual(expected,round(result,2))
 
-    def Test_renta_cero_en_ret(self):
+    def test_renta_cero_en_ret(self):
         ingresos_laborales=60000000
         otros_ingresos=1300000
         retenciones_fuente=0
@@ -271,7 +274,7 @@ class Declaracion_test(unittest.TestCase):
 
         self.assertEqual(expected,round(result,2))
 
-    def Test_renta(self):
+    def test_renta(self):
         ingresos_laborales=75500000
         otros_ingresos=5300000
         retenciones_fuente=1300000
@@ -287,7 +290,7 @@ class Declaracion_test(unittest.TestCase):
 
         self.assertEqual(expected,round(result,2))
 
-    def Test_renta_ganancias_neg(self):
+    def test_renta_ganancias_neg(self):
         ingresos_laborales=-75500000
         otros_ingresos=5300000
         retenciones_fuente=1300000
@@ -303,7 +306,7 @@ class Declaracion_test(unittest.TestCase):
 
         self.assertEqual(expected,round(result,2))
 
-    def Test_renta_apor_don_neg(self):
+    def test_renta_apor_don_neg(self):
         ingresos_laborales=75500000
         otros_ingresos=5300000
         retenciones_fuente=1300000
@@ -319,7 +322,7 @@ class Declaracion_test(unittest.TestCase):
 
         self.assertEqual(expected,round(result,2))
 
-    def Test_renta_otros_gas_neg(self):
+    def test_renta_otros_gas_neg(self):
         ingresos_laborales=75500000
         otros_ingresos=-5300000
         retenciones_fuente=1300000
