@@ -43,7 +43,7 @@ class PaymentApp(App):
         self.donaciones = TextInput(font_size=30)
         contenedor.add_widget(self.donaciones)
         
-        contenedor.add_widget(Label(text="Gastos en educacion"))
+        contenedor.add_widget(Label(text="Gastos en educacion|"))
         self.gastos_educacion = TextInput(font_size=30)
         contenedor.add_widget(self.gastos_educacion)
         
