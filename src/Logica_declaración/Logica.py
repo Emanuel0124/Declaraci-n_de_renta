@@ -23,34 +23,34 @@ def calcular_impuesto_renta(ingresos_laborales, otros_ingresos, retenciones_fuen
     if Utilidad <= 80010000:
         impuesto_renta_sin_resta = (Utilidad - 51301000) * 0.19
         impuesto_renta = impuesto_renta_sin_resta - retenciones_fuente
-        return _calcular_impuesto_final(impuesto_renta, Utilidad, total_ingresos_gravados, total_ingresos_no_gravados, total_costos_deducibles)
+        return calcular_impuesto_final(impuesto_renta, Utilidad, total_ingresos_gravados, total_ingresos_no_gravados, total_costos_deducibles)
 
     if Utilidad <= 192966000:
         impuesto_renta_sin_resta = (Utilidad - 80010000) * 0.28
         impuesto_renta = (impuesto_renta_sin_resta + 5459000) - retenciones_fuente
-        return _calcular_impuesto_final(impuesto_renta, Utilidad, total_ingresos_gravados, total_ingresos_no_gravados, total_costos_deducibles)
+        return calcular_impuesto_final(impuesto_renta, Utilidad, total_ingresos_gravados, total_ingresos_no_gravados, total_costos_deducibles)
 
     if Utilidad <= 408053000:
         impuesto_renta_sin_resta = (Utilidad - 192966000) * 0.33
         impuesto_renta = (impuesto_renta_sin_resta + 37087000) - retenciones_fuente
-        return _calcular_impuesto_final(impuesto_renta, Utilidad, total_ingresos_gravados, total_ingresos_no_gravados, total_costos_deducibles)
+        return calcular_impuesto_final(impuesto_renta, Utilidad, total_ingresos_gravados, total_ingresos_no_gravados, total_costos_deducibles)
 
     if Utilidad <= 892823000:
         impuesto_renta_sin_resta = (Utilidad - 408053000) * 0.35
         impuesto_renta = (impuesto_renta_sin_resta + 108061000) - retenciones_fuente
-        return _calcular_impuesto_final(impuesto_renta, Utilidad, total_ingresos_gravados, total_ingresos_no_gravados, total_costos_deducibles)
+        return calcular_impuesto_final(impuesto_renta, Utilidad, total_ingresos_gravados, total_ingresos_no_gravados, total_costos_deducibles)
 
     if Utilidad <= 1459015000:
         impuesto_renta_sin_resta = (Utilidad - 892823000) * 0.37
         impuesto_renta = (impuesto_renta_sin_resta + 277730000) - retenciones_fuente
-        return _calcular_impuesto_final(impuesto_renta, Utilidad, total_ingresos_gravados, total_ingresos_no_gravados, total_costos_deducibles)
+        return calcular_impuesto_final(impuesto_renta, Utilidad, total_ingresos_gravados, total_ingresos_no_gravados, total_costos_deducibles)
 
     impuesto_renta_sin_resta = (Utilidad - 1459015000) * 0.39
     impuesto_renta = (impuesto_renta_sin_resta + 487217000) - retenciones_fuente
-    return _calcular_impuesto_final(impuesto_renta, Utilidad, total_ingresos_gravados, total_ingresos_no_gravados, total_costos_deducibles)
+    return calcular_impuesto_final(impuesto_renta, Utilidad, total_ingresos_gravados, total_ingresos_no_gravados, total_costos_deducibles)
 
 
-def _calcular_impuesto_final(impuesto_renta, Utilidad, total_ingresos_gravados, total_ingresos_no_gravados, total_costos_deducibles):
+def calcular_impuesto_final(impuesto_renta, Utilidad, total_ingresos_gravados, total_ingresos_no_gravados, total_costos_deducibles):
     """
     Calcula y devuelve el impuesto de renta final y muestra los detalles.
     """

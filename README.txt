@@ -3,30 +3,25 @@ README
 Jhair Andres Santamaria
 Emanuel Bedoya
 
+Instrucciones para ejecutar el programa de cálculo de impuestos
+Este programa está diseñado para calcular el impuesto sobre la renta basado en varios parámetros financieros ingresados por el usuario.
 
-Este proyecto consiste en un sistema para calcular el impuesto de renta en base a los ingresos y gastos de un contribuyente. El cálculo se realiza de acuerdo con las normativas fiscales vigentes.
+Requisitos previos
+Python instalado en tu sistema. Puedes descargarlo desde python.org.
+Kivy instalado. Puedes instalarlo usando pip: pip install kivy.
+Pasos para ejecutar el programa
+Descarga o clona el repositorio en tu máquina local.
+Navega al directorio donde se encuentra el código fuente.
+Ejecuta el script principal main.py utilizando Python.
+bash
+Copy code
+python main.py
+Se abrirá una ventana de la aplicación.
+Ingresa los ingresos laborales, otros ingresos, retenciones en la fuente, pagos de seguridad social, aportes a la pensión, pagos de créditos hipotecarios, donaciones y gastos en educación en los campos de entrada correspondientes.
+Haz clic en el botón "Calcular" para obtener el resultado del cálculo del impuesto sobre la renta.
+El resultado se mostrará en la misma ventana.
+¡Eso es todo! Ahora puedes utilizar la aplicación para calcular el impuesto sobre la renta basado en los parámetros financieros ingresados. Si encuentras algún problema o error, no dudes en contactar al desarrollador.
 
-Estructura del proyecto
-El proyecto consta de tres archivos principales:
+Este README proporciona una guía básica para ejecutar el programa. 
 
-declaracion_console.py: Este archivo contiene el código para interactuar con el usuario a través de la consola. El usuario proporciona los datos necesarios, como los ingresos laborales, otros ingresos, retenciones en la fuente, entre otros. Luego, el sistema procesa esta información y calcula el impuesto de renta a pagar por el contribuyente.
 
-logica.py: Este archivo contiene la lógica para calcular el impuesto de renta. Define una función calcular_impuesto_renta que toma los ingresos y gastos del contribuyente como argumentos y devuelve el impuesto de renta calculado. Además, define una excepción personalizada Invalid para manejar casos donde los datos proporcionados no son válidos.
-
-Pruebas.py: Este archivo contiene un conjunto de pruebas unitarias para verificar el correcto funcionamiento de la función calcular_impuesto_renta. Utiliza el módulo unittest para definir casos de prueba que verifican diferentes escenarios de ingresos y gastos.
-
-Ejemplo de uso
-Para utilizar este sistema, sigue los siguientes pasos:
-
-Ejecuta el archivo declaracion_console.py en tu entorno de desarrollo o terminal.
-
-Sigue las instrucciones proporcionadas por el programa para ingresar los datos requeridos, como ingresos laborales, otros ingresos, retenciones en la fuente, etc.
-
-Una vez que hayas ingresado todos los datos, el programa calculará automáticamente el impuesto de renta correspondiente y te mostrará el resultado.
-
-Si los datos ingresados son inválidos, el programa mostrará un mensaje de error indicando la naturaleza del problema.
-
-Notas adicionales
-Asegúrate de proporcionar datos válidos y precisos para obtener resultados correctos.
-Las pruebas unitarias en Pruebas.py son útiles para verificar que la lógica de cálculo del impuesto de renta funcione correctamente en diferentes casos de prueba.
-Si encuentras algún problema o tienes alguna pregunta sobre el funcionamiento del sistema, no dudes en contactar al desarrollador.
