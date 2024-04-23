@@ -9,13 +9,13 @@ Este programa está diseñado para calcular el impuesto sobre la renta basado en
 Requisitos previos
 Python instalado en tu sistema. Puedes descargarlo desde python.org.
 Kivy instalado. Puedes instalarlo usando pip: pip install kivy.
-Pasos para ejecutar el programa
-Descarga o clona el repositorio en tu máquina local.
+Pasos para ejecutar el programa:
+Descarga o clona el repositorio en tu máquina local con el comando: git clone Nombre del repositorio
 Navega al directorio donde se encuentra el código fuente.
-Ejecuta el script principal main.py utilizando Python.
+Ejecuta el script principal declaracion_console.py utilizando Python.
 bash
 Copy code
-python main.py
+python declaracion_console.py
 Se abrirá una ventana de la aplicación.
 Ingresa los ingresos laborales, otros ingresos, retenciones en la fuente, pagos de seguridad social, aportes a la pensión, pagos de créditos hipotecarios, donaciones y gastos en educación en los campos de entrada correspondientes.
 Haz clic en el botón "Calcular" para obtener el resultado del cálculo del impuesto sobre la renta.
